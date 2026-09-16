@@ -8,39 +8,39 @@ Darukaa.Earth is an AI-powered environmental intelligence platform engineered to
 
 ```mermaid
 flowchart TD
-    User([User / Practitioner]) --> FE[Next.js 14 Dashboard]
-    FE --> API[FastAPI Backend /api]
-    
-    subgraph Natural Language & Extraction
-        API --> Extractor[Environmental Extractor (Regex + Pattern)]
-        Extractor --> MissingInfo[Missing Information Detector]
+    User(["User / Practitioner"]) --> FE["Next.js 14 Dashboard"]
+    FE --> API["FastAPI Backend /api"]
+
+    subgraph "Natural Language and Extraction"
+        API --> Extractor["Environmental Extractor (Regex + Pattern)"]
+        Extractor --> MissingInfo["Missing Information Detector"]
     end
 
-    subgraph Scientific Reasoning Layer
-        Extractor --> Graph[Environmental Relationship Graph]
+    subgraph "Scientific Reasoning Layer"
+        Extractor --> Graph["Environmental Relationship Graph"]
         MissingInfo --> Graph
-        Graph --> Reasoner[Multi-Stressor Reasoning Engine]
+        Graph --> Reasoner["Multi-Stressor Reasoning Engine"]
     end
 
-    subgraph Grounded RAG Knowledge Pipeline
-        API --> Embed[Sentence-Transformers all-MiniLM-L6-v2]
-        Embed --> Chroma[(ChromaDB Vector Store: 25 Records)]
-        Chroma --> Ranker[Composite Evidence Ranker]
+    subgraph "Grounded RAG Knowledge Pipeline"
+        API --> Embed["Sentence-Transformers all-MiniLM-L6-v2"]
+        Embed --> Chroma[("ChromaDB Vector Store: 25 Records")]
+        Chroma --> Ranker["Composite Evidence Ranker"]
     end
 
-    subgraph Decision & Generation Engine
-        Reasoner --> Engine[Recommendation Engine]
+    subgraph "Decision and Generation Engine"
+        Reasoner --> Engine["Recommendation Engine"]
         Ranker --> Engine
-        Engine --> OllamaCheck{Ollama Available?}
-        OllamaCheck -- Yes --> Ollama[Local Ollama: mistral:7b]
-        OllamaCheck -- No / Failure --> Fallback[Deterministic Scientific Fallback]
+        Engine --> OllamaCheck{"Ollama Available?"}
+        OllamaCheck -- Yes --> Ollama["Local Ollama: mistral:7b"]
+        OllamaCheck -- "No / Failure" --> Fallback["Deterministic Scientific Fallback"]
     end
 
-    subgraph Validation & Storage
-        Ollama --> CitValidator[Strict Citation & Schema Validator]
+    subgraph "Validation and Storage"
+        Ollama --> CitValidator["Strict Citation and Schema Validator"]
         Fallback --> CitValidator
-        CitValidator --> Memory[(SQLite Conversation Memory)]
-        CitValidator --> Response[Structured ChatResponse]
+        CitValidator --> Memory[("SQLite Conversation Memory")]
+        CitValidator --> Response["Structured ChatResponse"]
     end
 
     Response --> FE
