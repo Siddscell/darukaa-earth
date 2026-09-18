@@ -1,3 +1,16 @@
+## 🚀 Live Demo
+
+**Frontend:**  
+https://brought-successful-sunrise-jvc.trycloudflare.com
+
+**Backend API Health:**  
+https://newman-paragraphs-shoppers-prince.trycloudflare.com/api/system/status
+
+> **Submission note:** The original DOCX submission contains earlier Cloudflare Quick Tunnel URLs. Those URLs were temporary tunnel-session URLs and became inactive after that tunnel session ended. The links above are the currently active demo URLs for the GitHub repository.
+>
+> **Important:** This demo is hosted through a local Cloudflare Quick Tunnel, so the public URL depends on the tunnel process remaining active and may change after a shutdown/restart.
+
+---
 # Darukaa.Earth — AI Biodiversity Intelligence System
 
 Darukaa.Earth is an AI-powered environmental intelligence platform engineered to reason like an environmental scientist. Rather than operating as a generic conversational chatbot, Darukaa.Earth extracts structured ecological profiles from natural language, traverses an explicit environmental relationship graph across multiple ecological stressors, queries a grounded ChromaDB vector store, and produces structured, evidence-backed intervention recommendations via local Ollama inference (with an automatic deterministic fallback).
